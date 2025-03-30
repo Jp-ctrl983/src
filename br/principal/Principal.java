@@ -7,7 +7,6 @@ import br.com.alura.java_orientacao_a_objeto.modelo.Filme;
 import br.com.alura.java_orientacao_a_objeto.modelo.Series;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Principal {
     public static void main(String[] args) {
