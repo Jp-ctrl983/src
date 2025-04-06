@@ -1,5 +1,8 @@
 package br.principal;
 
+import br.com.alura.java_orientacao_a_objeto.modelo.Titulo;
+import com.google.gson.Gson;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -23,9 +26,12 @@ public class PrincipalComBusca {
         HttpResponse<String> response = client
                 .send(request, HttpResponse.BodyHandlers.ofString());
 
-        System.out.println(response.body() + "\n\n");
+        String json = response.body();
+        System.out.println(json + "\n\n");
 
-        System.out.println("Se der erro verifique se vc não digitou nada de errado");
+        Gson gson = new Gson();
 
+        Titulo title = gson.fromJson(json, Titulo.class);
+        System.out.println(title);
     }
 }
