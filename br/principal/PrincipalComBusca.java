@@ -1,5 +1,6 @@
 package br.principal;
 
+import br.com.alura.java_orientacao_a_objeto.modelo.Titulo;
 import br.com.alura.java_orientacao_a_objeto.modelo.TituloOmdb;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
@@ -29,6 +30,7 @@ public class PrincipalComBusca {
                 .send(request, HttpResponse.BodyHandlers.ofString());
 
         String json = response.body();
+
         System.out.println(json + "\n\n");
 
         Gson gson = new GsonBuilder()
@@ -36,7 +38,11 @@ public class PrincipalComBusca {
                 .create();
 
         //Titulo title = gson.fromJson(json, Titulo.class);
+
         TituloOmdb title = gson.fromJson(json, TituloOmdb.class);
         System.out.println(title);
+
+        Titulo meuTitulo = new Titulo(title);
+        System.out.println(meuTitulo);
     }
 }
