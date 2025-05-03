@@ -34,6 +34,7 @@ public class PrincipalComBusca {
         Gson gson = new GsonBuilder()
                 .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
                 .create();
+
         //Titulo title = gson.fromJson(json, Titulo.class);
         TituloOmdb title = gson.fromJson(json, TituloOmdb.class);
         System.out.println(title);
