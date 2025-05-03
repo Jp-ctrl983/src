@@ -5,8 +5,10 @@ import com.google.gson.annotations.SerializedName;
 public class Titulo implements Comparable<Titulo> {
     @SerializedName("Title")
     public String nome;
+
     @SerializedName("Year")
     public int anoDelançamento;
+
     public boolean incluidoNoPlano;
     private double somaDasAvaliação;
     private int TotalDeAvaliação;
