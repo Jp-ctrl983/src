@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class PrincipalComBusca {
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        Scanner  scan = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         System.out.println("O que vc deseja assistir: ");
         String busca = scan.nextLine();
 

@@ -1,8 +1,6 @@
 package br.alura.java_orientacao_a_objeto.calculo;
 
 public class Recomendacao {
-    private String recomendação;
-
     public void filtra(Classificacao clacificavel) {
         if (clacificavel.getClassificacao() >= 4){
             System.out.println("Está entre os preferidos do momento!");
