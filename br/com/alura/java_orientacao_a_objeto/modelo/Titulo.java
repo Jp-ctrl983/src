@@ -3,7 +3,6 @@ package br.com.alura.java_orientacao_a_objeto.modelo;
 import com.google.gson.annotations.SerializedName;
 
 public class Titulo implements Comparable<Titulo> {
-    @SerializedName("Title")
     public String nome;
 
     @SerializedName("Year")
