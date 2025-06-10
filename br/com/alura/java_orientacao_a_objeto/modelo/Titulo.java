@@ -1,11 +1,12 @@
 package br.com.alura.java_orientacao_a_objeto.modelo;
 
+import br.com.alura.java_orientacao_a_objeto.exception.ErroConvertException;
 import com.google.gson.annotations.SerializedName;
 
 public class Titulo implements Comparable<Titulo> {
     public String nome;
 
-    @SerializedName("Year")
+    // @SerializedName("Year")
     public int anoDelançamento;
 
     public boolean incluidoNoPlano;
@@ -13,10 +14,10 @@ public class Titulo implements Comparable<Titulo> {
     private int TotalDeAvaliação;
     public int duraçãoEmMinuto;
 
-    @SerializedName("Genre")
+    // @SerializedName("Genre")
     public String genere;
 
-    @SerializedName("Runtime")
+    // @SerializedName("Runtime")
     public String RunTime;
 
     public Titulo(String nome, int anoDelançamento) {
@@ -26,8 +27,13 @@ public class Titulo implements Comparable<Titulo> {
 
     public Titulo(TituloOmdb meuTituloOmdb) {
         this.nome = meuTituloOmdb.title();
+
+        if (meuTituloOmdb.year().length() > 4) {
+            throw new ErroConvertException("Erro de converção não a caracteres suficiente");
+        }
+
         this.anoDelançamento = Integer.valueOf(meuTituloOmdb.year().substring(0,4));
-        this.duraçãoEmMinuto = Integer.valueOf(meuTituloOmdb.runtime().substring(0,2));
+        this.duraçãoEmMinuto = Integer.valueOf(meuTituloOmdb.runtime());
     }
 
     public int getTotalDeAvaliação() {

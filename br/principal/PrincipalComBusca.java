@@ -21,7 +21,7 @@ public class PrincipalComBusca {
         System.out.println("O que vc deseja assistir: ");
         String busca = scan.nextLine();
 
-        String endereco = "https://www.omdbapi.com/?t=" + busca + "&apikey=2b316357";
+        String endereco = "https://www.omdbapi.com/?t=" + busca.replace(" ", "+") + "&apikey=2b316357";
 
         try {
             HttpClient client = HttpClient.newHttpClient();
@@ -49,11 +49,12 @@ public class PrincipalComBusca {
         } catch (NumberFormatException erro) {
             System.out.println("Aconteceu um erro: " + erro.getMessage() + "\n");
         } catch (IllegalArgumentException | NullPointerException err) {
-            throw new IllegalArgumentException("Aconteceu erro de argumento: " + err.getMessage());
+            System.out.println("Aconteceu erro de argumento: " + err.getMessage());
         } finally {
             System.out.println("Programa encerrado corretamente.");
         }
-
-
     }
+
+
+
 }
