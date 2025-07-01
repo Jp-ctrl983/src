@@ -10,4 +10,5 @@ public class ErroConvertException extends RuntimeException {
     public String getMensagem() {
         return this.mensagem;
     }
+
 }
