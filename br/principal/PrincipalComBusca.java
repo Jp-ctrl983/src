@@ -1,5 +1,6 @@
 package br.principal;
 
+import br.com.alura.java_orientacao_a_objeto.exception.ErroConvertException;
 import br.com.alura.java_orientacao_a_objeto.modelo.Titulo;
 import br.com.alura.java_orientacao_a_objeto.modelo.TituloOmdb;
 import com.google.gson.FieldNamingPolicy;
@@ -50,6 +51,8 @@ public class PrincipalComBusca {
             System.out.println("Aconteceu um erro: " + erro.getMessage() + "\n");
         } catch (IllegalArgumentException | NullPointerException err) {
             System.out.println("Aconteceu erro de argumento: " + err.getMessage());
+        } catch (ErroConvertException error) {
+            System.out.println(error.getMensagem());
         } finally {
             System.out.println("Programa encerrado corretamente.");
         }
