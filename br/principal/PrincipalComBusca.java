@@ -18,7 +18,6 @@ public class PrincipalComBusca {
     public static void main(String[] args) throws IOException, InterruptedException {
         Scanner scan = new Scanner(System.in);
 
-
         System.out.println("O que vc deseja assistir: ");
         String busca = scan.nextLine();
 
@@ -33,16 +32,16 @@ public class PrincipalComBusca {
                     .send(request, HttpResponse.BodyHandlers.ofString());
 
             String json = response.body();
-            System.out.println(json + "\n\n");
+            // System.out.println(json + "\n\n");
 
             Gson gson = new GsonBuilder()
                     .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
                     .create();
 
-
             //Titulo title = gson.fromJson(json, Titulo.class);
             TituloOmdb dadosOmdb = gson.fromJson(json, TituloOmdb.class);
             System.out.println(dadosOmdb);
+
 
             Titulo meuTitulo = new Titulo(dadosOmdb);
             System.out.println(meuTitulo);
@@ -57,7 +56,4 @@ public class PrincipalComBusca {
             System.out.println("Programa encerrado corretamente.");
         }
     }
-
-
-
 }

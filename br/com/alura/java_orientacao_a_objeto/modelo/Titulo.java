@@ -32,8 +32,11 @@ public class Titulo implements Comparable<Titulo> {
             throw new ErroConvertException("Erro de converção não a caracteres suficiente");
         }
 
-        this.anoDelançamento = Integer.valueOf(meuTituloOmdb.year().substring(0,4));
-        this.duraçãoEmMinuto = Integer.valueOf(meuTituloOmdb.runtime());
+        this.anoDelançamento = Integer.valueOf(meuTituloOmdb
+                .year()
+                .substring(0, 4));
+        this.duraçãoEmMinuto = Integer.valueOf(meuTituloOmdb
+                .runtime());
     }
 
     public int getTotalDeAvaliação() {
@@ -80,7 +83,7 @@ public class Titulo implements Comparable<Titulo> {
         TotalDeAvaliação++;
     }
 
-    //metodo double
+    // metodo double
     public double retornaMedia() {
         return somaDasAvaliação / TotalDeAvaliação;
     }
@@ -92,6 +95,7 @@ public class Titulo implements Comparable<Titulo> {
 
     @Override
     public String toString() {
-        return "nome: " + nome + " e anoDelançamento: " + anoDelançamento + " O tempo e de: " + this.duraçãoEmMinuto + " min";
+        return "nome: " + nome + " e anoDelançamento: " + anoDelançamento + " O tempo e de: " + this.duraçãoEmMinuto
+                + " min";
     }
 }
