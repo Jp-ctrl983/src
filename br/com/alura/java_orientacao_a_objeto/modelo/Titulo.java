@@ -28,7 +28,7 @@ public class Titulo implements Comparable<Titulo> {
                 .year()
                 .substring(0, 4));
         this.duraçãoEmMinuto = Integer.valueOf(meuTituloOmdb
-                .runtime().substring(0, 3));
+                .runtime().substring(0, 2));
     }
 
     public int getTotalDeAvaliação() {
@@ -87,7 +87,7 @@ public class Titulo implements Comparable<Titulo> {
 
     @Override
     public String toString() {
-        return "nome: " + nome + " e anoDelançamento: " + anoDelançamento + " O tempo e de: " + this.duraçãoEmMinuto
-                + " min";
+        return "\n(nome: " + nome + " e anoDelançamento: " + anoDelançamento
+        + " O tempo e de: " + this.duraçãoEmMinuto + " min)\n";
     }
 }
