@@ -46,6 +46,10 @@ public class PrincipalComBusca {
             Titulo meuTitulo = new Titulo(dadosOmdb);
             System.out.println(meuTitulo);
 
+            FileWriter escrever = new FileWriter("filme.txt");
+            escrever.write(meuTitulo.toString());
+            escrever.close();
+
         } catch (NumberFormatException erro) {
             System.out.println("Aconteceu um erro: " + erro.getMessage() + "\n");
         } catch (IllegalArgumentException | NullPointerException err) {
