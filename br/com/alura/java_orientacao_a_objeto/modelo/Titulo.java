@@ -1,23 +1,15 @@
 package br.com.alura.java_orientacao_a_objeto.modelo;
 
 import br.com.alura.java_orientacao_a_objeto.exception.ErroConvertException;
-import com.google.gson.annotations.SerializedName;
 
 public class Titulo implements Comparable<Titulo> {
     public String nome;
-
-    // @SerializedName("Year")
     public int anoDelançamento;
-
     public boolean incluidoNoPlano;
     private double somaDasAvaliação;
     private int TotalDeAvaliação;
     public int duraçãoEmMinuto;
-
-    // @SerializedName("Genre")
     public String genere;
-
-    // @SerializedName("Runtime")
     public String RunTime;
 
     public Titulo(String nome, int anoDelançamento) {
@@ -36,7 +28,7 @@ public class Titulo implements Comparable<Titulo> {
                 .year()
                 .substring(0, 4));
         this.duraçãoEmMinuto = Integer.valueOf(meuTituloOmdb
-                .runtime());
+                .runtime().substring(0, 3));
     }
 
     public int getTotalDeAvaliação() {

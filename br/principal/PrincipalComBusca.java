@@ -7,6 +7,8 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -32,7 +34,7 @@ public class PrincipalComBusca {
                     .send(request, HttpResponse.BodyHandlers.ofString());
 
             String json = response.body();
-            // System.out.println(json + "\n\n");
+            System.out.println(json + "\n\n");
 
             Gson gson = new GsonBuilder()
                     .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
@@ -40,15 +42,26 @@ public class PrincipalComBusca {
 
             //Titulo title = gson.fromJson(json, Titulo.class);
             TituloOmdb dadosOmdb = gson.fromJson(json, TituloOmdb.class);
-            System.out.println(dadosOmdb);
-
+            System.out.println(dadosOmdb + "\n\n");
 
             Titulo meuTitulo = new Titulo(dadosOmdb);
-            System.out.println(meuTitulo);
+            System.out.println("Object: " + meuTitulo);
 
-            FileWriter escrever = new FileWriter("filme.txt");
-            escrever.write(meuTitulo.toString());
-            escrever.close();
+            File file = new File("filme.txt");
+            boolean newFile = file.createNewFile();
+            Scanner scanner = new Scanner(file);
+
+            if (file.exists()) {
+                FileWriter escrever = new FileWriter(file);
+                escrever.write(meuTitulo.toString());
+                escrever.close();
+
+                // Fazer enquanto hasNextLine() == true, quando for false encerra a execução
+                do {
+                    String linha = scanner.nextLine();
+                    System.out.println("Escrito no arquivo: \n" + linha);
+                } while (scanner.hasNextLine());
+            }
 
         } catch (NumberFormatException erro) {
             System.out.println("Aconteceu um erro: " + erro.getMessage() + "\n");
@@ -56,8 +69,6 @@ public class PrincipalComBusca {
             System.out.println("Aconteceu erro de argumento: " + err.getMessage());
         } catch (ErroConvertException error) {
             System.out.println(error.getMensagem());
-        } finally {
-            System.out.println("Programa encerrado corretamente.");
         }
     }
 }
