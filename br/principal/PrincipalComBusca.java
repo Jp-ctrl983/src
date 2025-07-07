@@ -16,7 +16,6 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class PrincipalComBusca {
@@ -57,7 +56,7 @@ public class PrincipalComBusca {
                 System.out.println(dadosOmdb + "\n\n");
 
                 Titulo meuTitulo = new Titulo(dadosOmdb);
-                System.out.println("Object: " + meuTitulo);
+                // System.out.println("Object: " + meuTitulo);
 
                 titulos.add(meuTitulo);
 
